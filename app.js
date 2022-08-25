@@ -34,9 +34,9 @@ function reverseString(str) {
     var ddmmyyyy = date.day + date.month + date.year;
     var mmddyyyy = date.month + date.day + date.year;
     var yyyymmdd = date.year + date.month + date.day;
-    var ddmmyy = date.day + date.month + date.year;
-    var mmddyy = date.month + date.day + date.year;
-    var yymmdd = date.year + date.month + date.day
+    var ddmmyy = date.day + date.month + date.year.slice(-2);
+    var mmddyy = date.month + date.day + date.year.slice(-2);
+    var yymmdd = date.year.slice(-2) + date.month + date.day
   
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
   }
@@ -105,6 +105,7 @@ function reverseString(str) {
       } else {
         previousdate.month = date.month - 1;
         previousdate.day = daysInaMonth[date.month - 1];
+        previousdate.year=date.year;
       }
     }else{
       previousdate.day=date.day -1 ;
@@ -181,29 +182,40 @@ function reverseString(str) {
   //       pastdate = getPreviousDay(pastdate);
   //     }
   //   }
-  var date = {
-    day: 01,
-    month: 02,
-    year: 2020
-  }
-  var dob=document.querySelector(".userdob");
-  var button =document.querySelector(".submit");
+
+  var dob = document.querySelector(".userdob");
+  var button = document.querySelector(".submit");
   var output = document.querySelector(".output");
+  
 
-  var userdate = dob.value.split('-');
-  var day = date[0];
-  var month = date[1];
-  var year = date[2];
+button.addEventListener("click",()=>{
+    var bdayString = dob.value;
 
-  var date= {
-    day:Number(day),
-    month:Number(month),
-    year:Number(year)
+  if (bdayString !== '') {
+    var date = bdayString.split('-');
+    var yyyy = date[0];
+    var mm = date[1];
+    var dd = date[2];
   }
+    var date = {
+      day: Number(dd),
+      month: Number(mm),
+      year: Number(yyyy)
+    };
 
-  
-  
-  
-  console.log(findClosestPalindrome(date));
-  
+    var datetostring = dateToString(date);
+    var allformats = getAllFromats(datetostring);
+    for(var i=0;i<5;i++){
+        if(isPalindrome(allformats[i])){
+            output.innerText = "Your bday is plaindrome!"
+            break;
+        }
+    }
+    if(i===5){
+        var closestpalindrome = findClosestPalindrome(date);
+        var plural = closestpalindrome[0]===1?"day":"days";
+        output.innerText = "Closest palindrome to your birth day is "+closestpalindrome[1]+" you missed it by "+closestpalindrome[0]+" "+ plural ;
+    }
+    
+})
   

@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1 class="heading">Is your B'day palindrome?</h1>
+    <h1 class="heading">Is your Birthday <span>🎂</span> a palindrome?</h1>
     <div class="container">
+        <label for="userdob" class="label-dob">Enter your Birthday</label>
         <input type="date" class="userdob"/>
         <button type="submit" class="submit">Submit</button>
+        <div id ="loader" class="loader"></div>
         <p class="output"></p>
     </div>
 </body>

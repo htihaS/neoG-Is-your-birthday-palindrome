@@ -210,7 +210,8 @@ button.addEventListener("click",()=>{
 
     setTimeout(function () {
       
-      loader.style.display = "none"; 
+      
+      loadin.style.display = "none";
     var datetostring = dateToString(date);
     var allformats = getAllFromats(datetostring);
     for(var i=0;i<5;i++){

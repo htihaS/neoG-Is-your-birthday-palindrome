@@ -186,11 +186,19 @@ function reverseString(str) {
   var dob = document.querySelector(".userdob");
   var button = document.querySelector(".submit");
   var output = document.querySelector(".output");
-  var loader = document.querySelector(".loader");
+  
+
 
 
 button.addEventListener("click",()=>{
-  var bdayString = dob.value;
+  setTimeout( ()=>{
+    document.querySelector('.loader').style.display = 'block';
+    output.style.display = 'none';
+    }, 3000);
+    document.querySelector('.loader').style.display = 'none';
+    output.style.display = 'block';
+
+  .thenvar bdayString = dob.value;
 
   if (bdayString !== '') {
     var date = bdayString.split('-');
@@ -204,13 +212,6 @@ button.addEventListener("click",()=>{
       year: Number(yyyy)
     };
 
-    loader.style.display = "inline";
-    output.style.innerText = "";
-
-
-    setTimeout(function () {
-      
-      loader.style.display = "none"; 
     var datetostring = dateToString(date);
     var allformats = getAllFromats(datetostring);
     for(var i=0;i<5;i++){
@@ -225,8 +226,5 @@ button.addEventListener("click",()=>{
         var plural = closestpalindrome[0]===1?"day":"days";
         output.innerText = "Closest palindrome to your birth day is "+closestpalindrome[1]+" you missed it by "+closestpalindrome[0]+" "+ plural ;
     }
-
-  },3000);
-
 })
   

@@ -186,7 +186,8 @@ function reverseString(str) {
   var dob = document.querySelector(".userdob");
   var button = document.querySelector(".submit");
   var output = document.querySelector(".output");
-  var loader = document.querySelector(".loader");
+  
+
 
 
 button.addEventListener("click",()=>{
@@ -204,29 +205,30 @@ button.addEventListener("click",()=>{
       year: Number(yyyy)
     };
 
-    loader.style.display = "inline";
-    output.style.innerText = "";
-
-
-    setTimeout(function () {
-      
-      loader.style.display = "none"; 
     var datetostring = dateToString(date);
     var allformats = getAllFromats(datetostring);
     for(var i=0;i<5;i++){
         if(isPalindrome(allformats[i])){
-          
-            output.innerText = "Your birthday is palindrome!"
+          // setTimeout( ()=>{
+          //   document.querySelector('.loader').style.display = 'block';
+          //   output.style.display = 'none';
+          //   }, 3000);
+          //   document.querySelector('.loader').style.display = 'none';
+          //   output.style.display = 'block';
+            output.innerText = "Your birthday is plaindrome!"
             break;
         }
     }
     if(i===5){
         var closestpalindrome = findClosestPalindrome(date);
         var plural = closestpalindrome[0]===1?"day":"days";
+        // setTimeout( ()=>{
+        //   document.querySelector('.loader').style.display = 'block';
+        //   output.style.display = 'none';
+        //   }, 3000);
+        //   document.querySelector('.loader').style.display = 'none';
+        //   output.style.display = 'block';
         output.innerText = "Closest palindrome to your birth day is "+closestpalindrome[1]+" you missed it by "+closestpalindrome[0]+" "+ plural ;
     }
-
-  },3000);
-
 })
   

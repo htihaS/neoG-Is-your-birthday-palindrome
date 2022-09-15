@@ -1,5 +1,9 @@
 # neoG-Is-your-birthday-palindrome
 
+
+# HTML-CSS-JS
+
+
 A website which will let you know if your birthday is a palindrome or not ,if it is not a palindrome it will also show you what will be the closests palindrome to your birthday.
 
 ![image](https://user-images.githubusercontent.com/67045730/190403365-988aeebe-4894-4249-b84a-0b8a5c320324.png)

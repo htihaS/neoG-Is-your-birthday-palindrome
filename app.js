@@ -200,24 +200,15 @@ button.addEventListener("click",()=>{
     var allformats = getAllFromats(datetostring);
     for(var i=0;i<5;i++){
         if(isPalindrome(allformats[i])){
-<<<<<<< HEAD
             output.innerText = "Your birthday is plaindrome!"
-=======
-          
-            output.innerText = "Your birthday is palindrome!"
->>>>>>> 7bf9a20e481d9fb3d78553b9ab56566b621f943e
             break;
         }
     }
     if(i===5){
         var closestpalindrome = findClosestPalindrome(date);
         var plural = closestpalindrome[0]===1?"day":"days";
-<<<<<<< HEAD
         console.log(closestpalindrome[1].day);
         output.innerText = "Closest palindrome to your birthday is "+closestpalindrome[1].day+"-"+closestpalindrome[1].month+"-"+closestpalindrome[1].year+" "+" you missed it by "+closestpalindrome[0]+" "+ plural ;
-=======
-        output.innerText = "Closest palindrome to your birth day is "+closestpalindrome[1]+" you missed it by "+closestpalindrome[0]+" "+ plural ;
->>>>>>> 7bf9a20e481d9fb3d78553b9ab56566b621f943e
     }
 
   },3000);

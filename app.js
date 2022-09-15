@@ -130,7 +130,7 @@ function reverseString(str) {
         console.log("Next: ",allformats[i]);
         console.log(isPalindrome(allformats[i]));
         if (isPalindrome(allformats[i])) {
-          var futurePalindrome = [countfuture, allformats[i]];
+          var futurePalindrome = [countfuture, nextdate];
           flag = true
           break;
         }
@@ -150,7 +150,7 @@ function reverseString(str) {
         console.log("Past: ",allformats[i],i);
         console.log(isPalindrome(allformats[i]));
         if (isPalindrome(allformats[i])) {
-          var pastPalindrome = [countpast, allformats[i]];
+          var pastPalindrome = [countpast, previousday];
           flag = false;
           break;
         }
@@ -166,22 +166,7 @@ function reverseString(str) {
     }
   }
   
-  // function findPastPalindrome(date){
-  //     var pastdate = getPreviousDay(date);
-  //     var countpast = 0;
-  
-  //     while(1){
-  //       console.log(pastdate);
-  //         countpast++;
-  //         var allpastformats = getAllFromats(dateToString(pastdate));
-  //         for(var j=0;j<6;j++){
-  //             if(isPalindrome(allpastformats[j])){
-  //                 return [countpast,allpastformats[j]];
-  //             }
-  //         }
-  //       pastdate = getPreviousDay(pastdate);
-  //     }
-  //   }
+
 
   var dob = document.querySelector(".userdob");
   var button = document.querySelector(".submit");
@@ -209,26 +194,15 @@ button.addEventListener("click",()=>{
     var allformats = getAllFromats(datetostring);
     for(var i=0;i<5;i++){
         if(isPalindrome(allformats[i])){
-          // setTimeout( ()=>{
-          //   document.querySelector('.loader').style.display = 'block';
-          //   output.style.display = 'none';
-          //   }, 3000);
-          //   document.querySelector('.loader').style.display = 'none';
-          //   output.style.display = 'block';
-            output.innerText = "Your bday is plaindrome!"
+            output.innerText = "Your birthday is plaindrome!"
             break;
         }
     }
     if(i===5){
         var closestpalindrome = findClosestPalindrome(date);
         var plural = closestpalindrome[0]===1?"day":"days";
-        // setTimeout( ()=>{
-        //   document.querySelector('.loader').style.display = 'block';
-        //   output.style.display = 'none';
-        //   }, 3000);
-        //   document.querySelector('.loader').style.display = 'none';
-        //   output.style.display = 'block';
-        output.innerText = "Closest palindrome to your birth day is "+closestpalindrome[1]+" you missed it by "+closestpalindrome[0]+" "+ plural ;
+        console.log(closestpalindrome[1].day);
+        output.innerText = "Closest palindrome to your birthday is "+closestpalindrome[1].day+"-"+closestpalindrome[1].month+"-"+closestpalindrome[1].year+" "+" you missed it by "+closestpalindrome[0]+" "+ plural ;
     }
 })
   

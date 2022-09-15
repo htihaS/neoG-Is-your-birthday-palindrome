@@ -43,3 +43,37 @@ button{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  /* footer */
+.footer{
+    background-color: #00BFA6 ;
+    padding: 2rem 1rem;
+    text-align: center;
+    color:white;
+    border-top-right-radius: 1rem;
+    margin-top: 10rem ;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+}
+.footer .links{
+    color: white;
+}
+.footer .ul{
+    padding-inline-start: 0px;
+}
+
+/* List */
+.list-non-bullet{
+    list-style: none;
+}
+.list-item-inline {
+    display: inline;
+    padding: 0rem 1rem;
+}
+
+/* images */
+.img-footer{
+    height: 40px;
+    width: 40px;
+}
